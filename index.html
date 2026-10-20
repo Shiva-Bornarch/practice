@@ -4,9 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShopEasy - Online Store</title>
+  <title>ShopEasy - Laptops & Electronics</title>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: Arial, sans-serif;
@@ -22,97 +27,150 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 15px;
     }
 
-    header h1 { font-size: 26px; }
+    header h1 {
+      font-size: 28px;
+    }
 
     .cart-summary {
       background: #facc15;
       color: #172554;
-      padding: 10px 16px;
+      padding: 12px 18px;
       border-radius: 8px;
       font-weight: bold;
     }
 
     .hero {
       text-align: center;
-      padding: 45px 20px;
+      padding: 60px 20px;
       background: linear-gradient(120deg, #dbeafe, #ede9fe);
     }
 
-    .hero h2 { font-size: 32px; margin-bottom: 10px; }
-    .hero p { color: #555; }
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+      color: #172554;
+    }
+
+    .hero p {
+      color: #555;
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+
+    .hero a {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 7px;
+      font-weight: bold;
+    }
 
     .container {
-      max-width: 1100px;
-      margin: 30px auto;
+      max-width: 1200px;
+      margin: 35px auto;
       padding: 0 20px;
     }
 
     .section-title {
-      margin-bottom: 20px;
-      font-size: 24px;
+      font-size: 27px;
+      margin-bottom: 10px;
+      color: #172554;
+    }
+
+    .section-description {
+      color: #666;
+      margin-bottom: 25px;
     }
 
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
     }
 
     .product {
       background: white;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 12px #00000010;
+      box-shadow: 0 4px 14px #00000010;
       transition: transform 0.2s;
     }
 
-    .product:hover { transform: translateY(-4px); }
+    .product:hover {
+      transform: translateY(-5px);
+    }
 
     .product img {
       width: 100%;
-      height: 190px;
-      object-fit: cover;
-      background: #eee;
+      height: 200px;
+      object-fit: contain;
+      padding: 12px;
+      background: #fff;
     }
 
-    .product-info { padding: 18px; }
-    .product-info h3 { margin-bottom: 8px; }
-    .description { color: #666; font-size: 14px; margin-bottom: 12px; }
-    .price { color: #166534; font-size: 21px; font-weight: bold; margin-bottom: 14px; }
+    .product-info {
+      padding: 18px;
+    }
 
-    button {
-      border: none;
-      cursor: pointer;
-      border-radius: 6px;
-      padding: 11px 14px;
+    .product-info h3 {
+      font-size: 18px;
+      margin-bottom: 9px;
+    }
+
+    .description {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 42px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      color: #166534;
+      font-size: 21px;
       font-weight: bold;
+      margin-bottom: 15px;
     }
 
     .add-btn {
       width: 100%;
       background: #2563eb;
       color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
-    button:hover { opacity: 0.88; }
+    button:hover {
+      opacity: 0.88;
+    }
 
     .cart {
       background: white;
-      padding: 24px;
-      margin-top: 35px;
+      padding: 25px;
+      margin-top: 40px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px #00000010;
+      box-shadow: 0 4px 14px #00000010;
+    }
+
+    .cart h2 {
+      color: #172554;
+      margin-bottom: 15px;
     }
 
     .cart-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      padding: 15px 0;
+      gap: 15px;
+      padding: 17px 0;
       border-bottom: 1px solid #eee;
       flex-wrap: wrap;
     }
@@ -125,96 +183,167 @@
 
     .quantity-controls button {
       background: #e5e7eb;
-      padding: 6px 11px;
+      padding: 7px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
-    .remove-btn { background: #fee2e2; color: #b91c1c; }
-    .total { text-align: right; font-size: 22px; margin-top: 20px; }
+    .remove-btn {
+      background: #fee2e2 !important;
+      color: #b91c1c;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 23px;
+      margin-top: 22px;
+    }
+
     .checkout {
       display: block;
       margin: 18px 0 0 auto;
       background: #15803d;
       color: white;
-      padding: 13px 24px;
+      border: none;
+      border-radius: 6px;
+      padding: 14px 24px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
-    .empty { color: #666; padding: 20px 0; }
+    .empty {
+      color: #666;
+      padding: 15px 0;
+    }
 
     footer {
       text-align: center;
-      padding: 25px;
-      margin-top: 35px;
+      padding: 28px 15px;
+      margin-top: 40px;
       background: #172554;
       color: white;
     }
 
     @media (max-width: 500px) {
-      .hero h2 { font-size: 25px; }
-      header h1 { font-size: 22px; }
+      .hero h2 {
+        font-size: 27px;
+      }
+
+      header h1 {
+        font-size: 23px;
+      }
+
+      .cart-item {
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <header>
     <h1>🛍️ ShopEasy</h1>
+
     <div class="cart-summary">
       🛒 Cart: <span id="cart-count">0</span>
     </div>
   </header>
 
   <section class="hero">
-    <h2>Welcome to ShopEasy</h2>
-    <p>Discover great products at great prices.</p>
+    <h2>Find Your Perfect Laptop 💻</h2>
+    <p>Discover laptops, headphones, smartwatches and more at great prices.</p>
+    <a href="#products">Explore Products</a>
   </section>
 
   <main class="container">
+
     <h2 class="section-title">Our Products</h2>
+    <p class="section-description">
+      Explore our latest laptops and everyday electronics.
+    </p>
+
     <div class="products" id="products"></div>
 
     <section class="cart" id="cart">
-      <h2>Your Shopping Cart</h2>
+      <h2>🛒 Your Shopping Cart</h2>
+
       <div id="cart-items"></div>
+
       <div class="total">
         Total: <strong id="cart-total">₹0.00</strong>
       </div>
-      <button class="checkout" onclick="checkout()">Proceed to Checkout</button>
+
+      <button class="checkout" onclick="checkout()">
+        Proceed to Checkout
+      </button>
     </section>
+
   </main>
 
   <footer>
-    <p>© 2026 ShopEasy. Demo e-commerce store.</p>
+    <p>© 2026 ShopEasy. Demo electronics store.</p>
+    <p style="margin-top: 8px;">Your technology, your choice.</p>
   </footer>
 
   <script>
     const products = [
       {
         id: 1,
-        name: "Wireless Headphones",
-        description: "Enjoy music with clear sound.",
-        price: 1499,
-        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500"
+        name: "HP Pavilion Laptop",
+        description: "Versatile laptop for work, study and entertainment.",
+        price: 55999,
+        image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600"
       },
       {
         id: 2,
-        name: "Smart Watch",
-        description: "Track your daily activities.",
-        price: 2499,
-        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500"
+        name: "Apple MacBook",
+        description: "Premium laptop with a sleek design for productivity.",
+        price: 99999,
+        image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600"
       },
       {
         id: 3,
-        name: "Running Shoes",
-        description: "Comfortable shoes for every day.",
-        price: 1999,
-        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500"
+        name: "ASUS Gaming Laptop",
+        description: "Powerful-looking laptop for gaming and demanding tasks.",
+        price: 74999,
+        image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=600"
       },
       {
         id: 4,
-        name: "Backpack",
-        description: "A practical bag for everyday use.",
+        name: "Lenovo ThinkPad",
+        description: "A practical laptop for business and everyday work.",
+        price: 64999,
+        image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600"
+      },
+      {
+        id: 5,
+        name: "Wireless Headphones",
+        description: "Enjoy your music with comfortable wireless listening.",
+        price: 1499,
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"
+      },
+      {
+        id: 6,
+        name: "Smart Watch",
+        description: "A stylish smartwatch for everyday activities.",
+        price: 2499,
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600"
+      },
+      {
+        id: 7,
+        name: "Running Shoes",
+        description: "Comfortable shoes for walking, running and daily use.",
+        price: 1999,
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"
+      },
+      {
+        id: 8,
+        name: "Travel Backpack",
+        description: "Carry your laptop and essentials wherever you go.",
         price: 999,
-        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500"
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600"
       }
     ];
 
@@ -223,24 +352,39 @@
     const money = amount =>
       new Intl.NumberFormat("en-IN", {
         style: "currency",
-        currency: "INR"
+        currency: "INR",
+        maximumFractionDigits: 2
       }).format(amount);
 
     function renderProducts() {
-      document.getElementById("products").innerHTML = products.map(p => `
-        <article class="product">
-          <img src="${p.image}" alt="${p.name}"
-               onerror="this.style.display='none'">
-          <div class="product-info">
-            <h3>${p.name}</h3>
-            <p class="description">${p.description}</p>
-            <p class="price">${money(p.price)}</p>
-            <button class="add-btn" onclick="addToCart(${p.id})">
-              Add to Cart
-            </button>
-          </div>
-        </article>
-      `).join("");
+      document.getElementById("products").innerHTML =
+        products.map(product => `
+          <article class="product">
+            <img
+              src="${product.image}"
+              alt="${product.name}"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='https://placehold.co/500x350/f1f5f9/172554?text=Product+Image';"
+            >
+
+            <div class="product-info">
+              <h3>${product.name}</h3>
+
+              <p class="description">
+                ${product.description}
+              </p>
+
+              <p class="price">${money(product.price)}</p>
+
+              <button
+                class="add-btn"
+                onclick="addToCart(${product.id})"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </article>
+        `).join("");
     }
 
     function addToCart(id) {
@@ -250,7 +394,11 @@
 
     function changeQuantity(id, amount) {
       cart[id] = (cart[id] || 0) + amount;
-      if (cart[id] <= 0) delete cart[id];
+
+      if (cart[id] <= 0) {
+        delete cart[id];
+      }
+
       renderCart();
     }
 
@@ -261,56 +409,83 @@
 
     function renderCart() {
       const entries = Object.entries(cart);
-      const count = entries.reduce((sum, [, qty]) => sum + qty, 0);
-      const total = entries.reduce((sum, [id, qty]) => {
-        const product = products.find(p => p.id === Number(id));
-        return sum + product.price * qty;
+
+      const count = entries.reduce(
+        (sum, [, quantity]) => sum + quantity,
+        0
+      );
+
+      const total = entries.reduce((sum, [id, quantity]) => {
+        const product = products.find(
+          item => item.id === Number(id)
+        );
+
+        return sum + product.price * quantity;
       }, 0);
 
       document.getElementById("cart-count").textContent = count;
       document.getElementById("cart-total").textContent = money(total);
 
-      document.getElementById("cart-items").innerHTML = entries.length
-        ? entries.map(([id, qty]) => {
-            const p = products.find(item => item.id === Number(id));
-            return `
-              <div class="cart-item">
-                <div>
-                  <strong>${p.name}</strong><br>
-                  <span>${money(p.price)} each</span>
+      document.getElementById("cart-items").innerHTML =
+        entries.length
+          ? entries.map(([id, quantity]) => {
+              const product = products.find(
+                item => item.id === Number(id)
+              );
+
+              return `
+                <div class="cart-item">
+                  <div>
+                    <strong>${product.name}</strong>
+                    <p>${money(product.price)} each</p>
+                  </div>
+
+                  <div class="quantity-controls">
+                    <button
+                      onclick="changeQuantity(${product.id}, -1)"
+                      aria-label="Decrease quantity"
+                    >−</button>
+
+                    <span>${quantity}</span>
+
+                    <button
+                      onclick="changeQuantity(${product.id}, 1)"
+                      aria-label="Increase quantity"
+                    >+</button>
+
+                    <button
+                      class="remove-btn"
+                      onclick="removeItem(${product.id})"
+                    >Remove</button>
+                  </div>
                 </div>
-                <div class="quantity-controls">
-                  <button onclick="changeQuantity(${p.id}, -1)"
-                          aria-label="Decrease quantity">−</button>
-                  <span>${qty}</span>
-                  <button onclick="changeQuantity(${p.id}, 1)"
-                          aria-label="Increase quantity">+</button>
-                  <button class="remove-btn"
-                          onclick="removeItem(${p.id})">Remove</button>
-                </div>
-              </div>
-            `;
-          }).join("")
-        : '<p class="empty">Your cart is empty. Add a product to get started!</p>';
+              `;
+            }).join("")
+          : '<p class="empty">Your cart is empty. Add a product to get started!</p>';
     }
 
     function checkout() {
-      const count = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+      const count = Object.values(cart).reduce(
+        (sum, quantity) => sum + quantity,
+        0
+      );
 
       if (count === 0) {
-        alert("Your cart is empty!");
+        alert("Your cart is empty! Please add a product first.");
         return;
       }
 
       const total = products.reduce(
-        (sum, p) => sum + p.price * (cart[p.id] || 0), 0
+        (sum, product) =>
+          sum + product.price * (cart[product.id] || 0),
+        0
       );
 
       alert(
-        "Demo checkout only!\\n" +
-        "Items: " + count + "\\n" +
-        "Total: " + money(total) +
-        "\\nNo payment has been processed."
+        "Welcome to ShopEasy checkout!\n\n" +
+        "Total items: " + count + "\n" +
+        "Order total: " + money(total) + "\n\n" +
+        "This is a demo store. No payment has been processed."
       );
     }
 
